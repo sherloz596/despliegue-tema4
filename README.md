@@ -33,4 +33,4 @@ Creo el fichero info.php en el documentRoot (/var/www/html ?) con el siguiente c
 <?php phpinfo(); ?>
 ```
 Compruebo el fichero desde el navegador y se muestra correctamente
-![](capturaphp.png){width=200px height=100px}
+![](capturaphp.PNG){}
