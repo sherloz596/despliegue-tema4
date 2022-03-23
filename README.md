@@ -57,8 +57,8 @@ Configuro la base de datos
 ```
 create database wordpress;
 use wordpress;
-create user 'user@localhost';
-grant all privileges on wordpress.* to 'user@localhost' identified by 'user';
+create user 'user'@'localhost';
+grant all privileges on wordpress.* to 'user'@'localhost' identified by 'user';
 flush privileges;
 ```
 Copio la ruta de descarga desde la página de descarga de wordpress y lo descargo en el documentRoot (/var/www/html) con la herramienta wget
