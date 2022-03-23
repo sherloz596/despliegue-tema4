@@ -74,3 +74,25 @@ Hago propietario del documentRoot al usuario de apache www-data para que pueda g
 ```
 sudo chown -R www-data:www-data html/
 ```
+Accedo al enlace de instalación
+```
+http://localhost:8080/wordpress/wp-admin/setup-config.php
+```
+Introduzco los detalles de la conexión
+```
+Nombre de la base de datos: wordpress
+Nombre del usuario: user
+Contraseña: user
+Servidor de la base de datos: localhost
+Prefijo de tabla: wp_
+```
+Ejecuto la instalación y relleno la información que solicita:
+```
+Título del sitio: Despliegue-tema4
+Nombre de usuario: admin
+Contraseña: adminDAW004
+Tu correo electrónico: admin@exam.es
+```
+Hago login con las credenciales introducidas y accedo al panel de administración:
+
+Accedo a wordpress desde http://localhost:8080/wordpress
