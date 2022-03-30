@@ -148,3 +148,31 @@ Reinicio el servicio web para aplicar todos los ajustes
 ```
 sudo systemctl restart apache2
 ```
+##### - Base de datos
+Conecto al servicio con el cliente mysql y un usuario administrador
+```
+mysql -u root -p
+```
+Creo la base de datos
+```
+create database drupal9 charset utf8mb4 collate utf8mb4_unicode_ci;
+```
+Como voy a usar MariaDB creo el usuario de forma trivial
+```
+create user drupal9@localhost identified by 'XXXXXXXX';
+```
+Concedo los privilegios al usuario sobre la base y cierro la conexión
+```
+grant all privileges on drupal9.* to drupal9@localhost;
+exit
+```
+# **************** DUDA PHP *********************
+##### - Instalador web
+Accedo al instalador web
+```
+http://localhost:8080/drupal
+```
+Sigo los pasos del instalador:
+- En la página inicial del instalador web elijo el idioma de la instalación
+- Selecciono el perfil de instalación. En mi caso estándar
+- El instalador comprueba los requisitos para la instalación 
