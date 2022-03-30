@@ -128,3 +128,23 @@ Activo los módulos de apache de los que podría hacer uso Drupal
 ```
 sudo a2enmod expires headers rewrite
 ```
+El uso de estos módulos se realiza a través de archivos .htaccess, que no son interpretados por defecto.
+Añado al archivo de configuración que crearé para hacer la aplicación navegable a través de un alias
+```
+sudo nano /etc/apache2/sites-available/drupal.conf
+```
+El contenido queda así:
+```
+Alias /drupal /var/www/drupal
+<Directory /var/www/drupal>
+        AllowOverride all
+</Directory>
+```
+Activo la configuración
+```
+sudo a2ensite drupal.conf
+```
+Reinicio el servicio web para aplicar todos los ajustes
+```
+sudo systemctl restart apache2
+```
