@@ -96,3 +96,35 @@ Tu correo electrónico: admin@exam.es
 Hago login con las credenciales introducidas y accedo al panel de administración:
 
 Accedo a wordpress desde http://localhost:8080/wordpress
+
+
+### Práctica: Instalación de Drupal
+##### - Descarga y configuración previa
+Levanto y actualizo el sistema
+```
+vagrant up
+vagrant ssh
+sudo apt update
+```
+Copio la ruta de descarga  del paquete .tar.gz desde la página de descarga de drupal y lo descargo con la herramienta wget
+```
+wget --content-disposition https://www.drupal.org/download-latest/tar.gz
+```
+Extraigo el paquete que acabo de descargar directamente en la ruta que me interesa para la integración con el servicio web:
+```
+sudo tar xf drupal-9.X.X.tar.gz -C /var/www/
+```
+Como el nombre del nuevo subdirectorio creado contiene el número de versión en su nombre, creo un enlace simbólico sin números:
+```
+sudo ln -s /var/www/drupal-9.X.X /var/www/drupal
+```
+# Sustituye en el comando anterior 9.X.X por la versión que has descargado (la tecla tabulador ayudará con el autocompletado).
+Cambio la propiedad del directorio de instalación y de su contenido al usuario con el que corre el servicio web en Ubuntu 20.04 ya que Drupal 9 necesita escribiren él
+```
+sudo chown -R www-data: /var/www/drupal/
+```
+##### - Servicio web
+Activo los módulos de apache de los que podría hacer uso Drupal
+```
+sudo a2enmod expires headers rewrite
+```
