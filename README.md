@@ -180,3 +180,32 @@ Sigo los pasos del instalador:
 - Comienza el proceso de intalación
 - Inicializa la base de datos, instala módulos, traducciones, etc y pide la información básica de identificación del nuevo sitio web y los datos del usuario administrador
 - La instalación ultima la actualización de traducciones y presenta el nuevo sitio Drupal 9 con sesión iniciada automáticamente para el usuario administrador
+##### - Post-instalación
+Edito el archivo de configuración de Drupal settings.php para proteger a mi sitio contra ataques de tipo «HTTP Host Header«
+```
+sudo nano /var/www/drupal/sites/default/settings.php
+```
+Configuro la variable trusted_host_patterns:
+```
+...
+/**
+ * Trusted host configuration.
+...
+ * $settings['trusted_host_patterns'] = [
+ *   '^www\.example\.com$',
+ * ];
+...
+ */
+...
+```
+# ****************** DUDA DOMINIO *************************
+Este bloque de configuración está desactivado por completo en forma de comentarios, así que realizo la configuración fuera de dicho bloque. Añado a la variable sólo aquellos dominios a los que Drupal debe responder.
+
+En mi caso al ser un servidor Ubuntu 20.04 LTS accesible en el dominio ubuntu2004.local.lan, lo configuro así
+```
+...
+$settings['trusted_host_patterns'] = [
+        '^ubuntu2004\.local\.lan$',
+];
+...
+```
